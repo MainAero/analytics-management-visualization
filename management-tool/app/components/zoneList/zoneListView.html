@@ -1,0 +1,68 @@
+<div id="page-wrapper">
+
+    <div class="col-xs-6">
+
+        <div class="row">
+            <div class="col-xs-offset-1">
+                <h1 class="text-center">Z<span class="headline-span">ones</span></h1>
+                <hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-offset-2 col-xs-9">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <button class="btn btn-success btn-design btn-sm"
+                                    ng-click="createNewZone()" style="width: 125px"><span
+                                    class="glyphicon glyphicon-plus"></span> Create Zone
+                            </button>
+                        </div>
+
+                        <div class="col-xs-offset-2 col-xs-5">
+                            <button class="btn btn-danger btn-design btn-sm pull-right"
+                                    ng-click="deleteZone()" style="width: 125px"><span
+                                    class="glyphicon glyphicon-minus"></span> Delete
+                                Zone
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-9">
+                    <zonelist zones="listOfZones" setzone="zoneChanging"></zonelist>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-xs-offset-2 col-xs-9">
+                    <button class="btn btn-primary btn-design btn-block"
+                            ng-click="importZones()">
+                        <span class="glyphicon glyphicon-upload"></span> Import
+                        Zones
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+
+        <div class="form-group">
+            <h1 class="text-center">A<span class="headline-span">ttributes</span></h1>
+            <hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+        </div>
+
+        <zoneattributes zone="activeZone"></zoneattributes>
+
+    </div>
+
+
+</div>

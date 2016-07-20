@@ -1,0 +1,55 @@
+<div id="page-wrapper" ng-style="pageWrapperStyle">
+
+	<!-- <h1 class="page-header">Create new Views</h1> -->
+
+	<div class="col-xs-4 fullheight">
+
+		<div class="row">
+			<h1 class="text-center">A<span class="headline-span">dd</span> Z<span class="headline-span">ones</span> V<span class="headline-span">iews</span></h1>
+			<hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+		</div>
+
+		<ul class="nav nav-tabs" style="margin-bottom: 20px;">
+			<li role="presentation" ng-class="{'active': showKind == 'view'}" ng-click="showKind = 'view'"><a>Views</a></li>
+			<li role="presentation" ng-class="{'active': showKind == 'zone'}" ng-click="showKind = 'zone'"><a>Zones</a></li>
+		</ul>
+
+		<zonelist ng-show="showKind == 'zone'" zones="zones" setzone="addZone"></zonelist>
+		<zonelist ng-show="showKind == 'view'" zones="views" setzone="addView"></zonelist>
+	</div>
+
+	<div class="col-xs-4">
+		<div class="row">
+			<h1 class="text-center">N<span class="headline-span">ew</span> V<span class="headline-span">iew</span> P<span class="headline-span">art</span></h1>
+			<hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+		</div>
+
+		<zonelist zones="newViewParts" setzone="" style="margin-top: 60px;"></zonelist>
+
+	</div>
+
+	<div class="col-xs-3">
+		<!-- <cesium-Display-Helper zone="activeZone" editable="true"></cesium-Display-Helper> -->
+
+		<div class="row">
+			<h1 class="text-center">N<span class="headline-span">ew</span> V<span class="headline-span">iew</span> D<span class="headline-span">ata</span></h1>
+			<hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+		</div>
+
+		<form style="margin-top: 30px">
+			<fieldset class="form-group">
+				<div class="label control-label text-center">Name</div>
+				<input class="form-control" type="text" ng-model="newView.name">
+			</fieldset>
+
+			<fieldset class="form-group">
+				<div class="label control-label text-center">Description</div>
+				<input class="form-control" type="text" ng-model="newView.description">
+			</fieldset>
+		</form>
+
+		<button class="btn btn-success btn-design" style="width: 150px" ng-click="createNewView()"><span class="glyphicon glyphicon-ok"></span> Create</button>
+		<button class="btn btn-danger btn-design pull-right" style="width: 150px" ng-click="clearNewView()"><span class="glyphicon glyphicon-remove"></span> Clear</button>
+	</div>
+
+</div>

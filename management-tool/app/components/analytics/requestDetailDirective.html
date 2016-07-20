@@ -1,0 +1,24 @@
+<div class="jumbotron">
+
+	<div ng-if="selected !== undefined && selected !== null">
+		<h2>{{selected.name}} <small>Request</small></h2>
+
+
+		<strong class="">Status</strong>
+		<p ng-show="selected.data.resolved">loading</p>
+		<p ng-show="!selected.data.resolved">done</p>
+
+		<strong>View(s)</strong>
+		<p>{{selected.data.view_id}}</p>
+
+		<strong>Timespan</strong>
+		<p>{{selected.data.start_date | date: 'dd.MM.yyyy'}} - {{selected.data.end_date | date: 'dd.MM.yyyy'}}</p>
+
+		<strong>Result</strong>
+		<p>{{selected.data.rows}}</p>
+	</div>
+
+	<div ng-if="!selected">
+		<h2>No Request selected</h2>
+	</div>
+</div>

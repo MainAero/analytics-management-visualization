@@ -1,0 +1,50 @@
+<div class="navbar-default sidebar" role="navigation" ng-class="sidebarCssVar">
+	<div class="sidebar-nav navbar-collapse">
+		<ul class="nav" id="side-menu">
+			<!--<li ng-if="isAdmin">-->
+				<!--<a href="#/"><i class="fa fa-globe sidebar-icon"></i>-->
+                    <!--<div class="sidebar-text" ng-show="!isSidebarSmall"> Map</div>-->
+                <!--</a>-->
+			<!--</li>-->
+			<li ng-if="isUser">
+				<a href="#/viewZones" ng-class="{ 'active' : active === 'zones' }" ng-click="setActive('zones')"><i class="fa fa-square-o sidebar-icon"></i>
+                    <div class="sidebar-text" ng-show="!isSidebarSmall"> Zones</div>
+                </a>
+			</li>
+			<li ng-if="isUser">
+				<a href="#/viewViews" ng-class="{ 'active' : active === 'views' }" ng-click="setActive('views')"><i class="fa fa-eye sidebar-icon"></i>
+                    <div class="sidebar-text" ng-show="!isSidebarSmall"> Views</div>
+                </a>
+			</li>
+			<li ng-if="isUser">
+				<a href="#/analytics/list" ng-class="{ 'active' : active === 'analytics' }" ng-click="setActive('analytics')"><i class="fa fa-bar-chart"></i>
+                    <div class="sidebar-text" ng-show="!isSidebarSmall">Analytics</div>
+                </a>
+			</li>
+			<li class="text-center" ng-show="!isSidebarSmall">
+				<a href="" ng-click="sidebarCssVar = 'sidebar-class'; shrinkSidebar(true);"><i
+                        class="fa fa-arrow-left"></i></a>
+			</li>
+			<li class="text-center" ng-show="isSidebarSmall">
+				<a href="" ng-click="sidebarCssVar = ''; shrinkSidebar(false);"><i class="fa fa-arrow-right"></i></a>
+			</li>
+
+		</ul>
+	</div>
+	<!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+
+
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<!--<div class="collapse navbar-collapse navbar-ex1-collapse">-->
+<!--<ul class="nav navbar-nav side-nav">-->
+<!--<li class="">-->
+<!--<a href="#/viewZones"><i class="fa fa-globe"></i>Zones</a>-->
+<!--</li>-->
+<!--<li class="">-->
+<!--<a href="#/viewViews"><i class="fa fa-globe"></i>Views</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!-- /.navbar-collapse -->

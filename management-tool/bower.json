@@ -1,0 +1,32 @@
+{
+  "name": "AnalyticsManagementVisualization",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.4.9",
+    "angular-route": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "bootstrap": "~3.3.5",
+    "components-font-awesome": "~4.4.0",
+    "cesium": "cesiumjs#~1.15.0",
+    "angular-css": "~1.0.7",
+    "angular-cesium": "~0.0.3",
+    "angular-animate": "~1.4.9",
+    "angular-bootstrap": "~1.1.2",
+    "angularjs-slider": "~2.6.0"
+  },
+  "appPath": "app",
+  "moduleName": "AnalyticsManagementVisualizationApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.4.9",
+    "angular-bootstrap": "~1.1.2"
+  }
+}

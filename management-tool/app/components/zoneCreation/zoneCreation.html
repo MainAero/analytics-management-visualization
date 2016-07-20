@@ -1,0 +1,37 @@
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">N<span class="headline-span">ew</span> Z<span class="headline-span">one</span></h1>
+            <hr style="max-width: 30%; border-color: black; margin-bottom: 50px; margin-top: 5px;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-offset-4 col-xs-2" style="margin-bottom: 100px;">
+
+            <button class="btn btn-success btn-design btn-block" ng-click="createNewZone()"><i
+                    class="glyphicon glyphicon-ok"></i>
+                Create
+                Zone
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-danger btn-design btn-block" ng-click="abort()"><i
+                    class="glyphicon glyphicon-remove"></i> Cancel
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-6">
+            <cesium-Draw-Helper mapid="cesiumMap" polygondone="callback"></cesium-Draw-Helper>
+        </div>
+        <div class="col-xs-5">
+            <zonecreationinput zone="newZone"></zonecreationinput>
+        </div>
+    </div>
+
+</div>

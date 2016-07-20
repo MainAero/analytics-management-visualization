@@ -1,0 +1,12 @@
+div.col-xs-6 {
+	height: 100%;
+}
+
+div.zoneList {
+	height: 85%;
+}
+
+div.zoneList div.list-group {
+	height: 420px;
+	overflow-y: auto;
+}

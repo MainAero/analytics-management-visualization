@@ -1,0 +1,87 @@
+<div id="page-wrapper">
+	<div class="container-fluid" style="height: 90%;">
+
+		<div class="row">
+			<h1 class="text-center">A<span class="headline-span">nalytics</span></h1>
+			<hr style="max-width: 30%; border-color: black; margin-bottom: 50px; margin-top: 5px;">
+		</div>
+
+		<div class="row height80">
+			<div class="col-xs-offset-1 col-xs-5 fullheight">
+				<p>Please select one or multiple view(s) and the data needed to ...</p>
+
+				<div class="fullheight">
+					<viewlist views="listOfViews" setview="changeActiveView"></viewlist>
+				</div>
+			</div>
+
+			<div class="col-xs-offset-1 col-xs-4" style="overflow-y: auto">
+
+				<form>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label text-center">Name</div>
+						<input class="form-control" type="text" ng-model="request.name">
+					</fieldset>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label">Start date</div>
+						<input class="form-control" type="date" ng-model="request.startDate">
+					</fieldset>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label">End date</div>
+						<input class="form-control" type="date" ng-model="request.endDate">
+					</fieldset>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label">Time Dimension</div>
+						<select class="form-control attribute-value" id="" ng-model="request.dimensionTime" ng-init="request.dimensionTime = 'dateHour'">
+							<option>dateHour</option>
+							<option>dateDay</option>
+							<option>dateWeek</option>
+							<option>dateMonth</option>
+							<option>dateQuarter</option>
+							<option>dateYear</option>
+						</select>
+					</fieldset>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label">Visit dimension</div>
+						<select class="form-control attribute-value" id="" ng-model="request.dimensionVisitors" ng-init="request.dimensionVisitors = 'allVisitors'">
+							<option>longVisits</option>
+							<option>startingVisits</option>
+							<option>ongoingVisits</option>
+							<option>endingVisits</option>
+							<option>allVisitors</option>
+							<option>newVisitors</option>
+							<option>returningVisitors</option>
+							<option>passBy</option>
+						</select>
+					</fieldset>
+
+					<fieldset class="form-group form-group-lg">
+						<div class="label control-label">Metric</div>
+						<select class="form-control attribute-value" id="" ng-model="request.metric" ng-init="request.metric = 'count'">
+							<option>count</option>
+							<option>averageDwellTime</option>
+							<option>frequency</option>
+						</select>
+					</fieldset>
+
+				</form>
+
+				<button class='btn btn-success btn-design' ng-click="runRequest()"><span class="glyphicon glyphicon-ok"></span> Run Request
+				</button>
+				<button class='btn btn-danger btn-design pull-right' ng-click="cancel()"><span class="glyphicon glyphicon-remove"></span> Cancel
+				</button>
+			</div>
+		</div>
+
+
+		<div class="result">{{result}}</div>
+
+	</div>
+	<!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

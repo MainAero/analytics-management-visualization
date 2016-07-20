@@ -1,0 +1,131 @@
+#wrapper {
+    background-color: white;
+    height: 100%;
+}
+
+.fullheight {
+    height: 100%;
+}
+
+.zoneList .filter {
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.viewList .filter {
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.selected {
+    background-color: red;
+}
+
+.attribute-value {
+    font-size: 3rem;
+}
+
+.attribute-name {
+    font-size: 2rem;
+    color: darkgrey;
+    font-style: italic;
+}
+
+.attribute-value {
+    font-size: 3rem;
+}
+
+.attribute-name {
+    font-size: 2rem;
+    color: darkgrey;
+    font-style: italic;
+}
+
+#zoneListView {
+    padding: 40px 20px;
+}
+
+.zone.hover {
+    background-color: rgba(188,232,241,.3);
+}
+
+.zone.selected {
+    background-color: rgb(188,232,241);
+}
+
+.view.hover {
+    background-color: darkgrey;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+#viewListView {
+    padding: 40px 20px;
+}
+
+.input-group {
+    margin: 20px 0;
+}
+
+#viewCreation {
+    padding: 40px 20px;
+}
+
+#svgImportView {
+    padding: 40px 20px;
+}
+
+.label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+.notAggregated .tree-icon {
+    color: red;
+}
+
+.inProgress .tree-icon {
+    color: orange;
+}
+
+.aggregated .tree-icon {
+    color: green;
+}
+
+.blured-bg {
+    background: url(../img/googleMapBerlin.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.btn-design {
+    border-width: 1px 1px 3px;
+    -moz-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    border-style: solid;
+}
+
+.headline-span {
+    font-weight: 300;
+}
+
+.bold-label {
+    font-weight: bold;
+}
+
+.input-filter {
+    text-align: center;
+}
+
+li {
+    cursor: pointer;
+}

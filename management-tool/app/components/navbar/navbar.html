@@ -1,0 +1,31 @@
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" style="padding: 0;">
+        <img src="../../assets/img/logo_amazin.png" style="max-height: 45px; display: inline">
+        <h4 style="display: inline">I<span style="font-weight: 300;">ndoor</span> L<span style="font-weight: 300;">ocation</span> A<span style="font-weight: 300;">nalytics</span></h4>
+    </a>
+</div>
+<!-- /.navbar-header -->
+
+<ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown" style="cursor: pointer">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-user fa-fw"></i> {{username}} <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user" style="padding: 0px;">
+            <li><a ng-click="setVenue()" style="padding: 10px;"><i class="fa fa-gear fa-fw"></i> Set Venue</a>
+            </li>
+            <li class="divider" style="margin: 0;"></li>
+            <li><a ng-click="logout()" style="padding: 10px;"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+</ul>
+<!-- /.navbar-top-links -->

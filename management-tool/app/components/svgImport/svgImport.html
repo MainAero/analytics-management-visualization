@@ -1,0 +1,76 @@
+<div id="page-wrapper">
+    <div class="col-xs-12">
+
+        <h1 class="text-center">I<span class="headline-span">mport</span> Z<span class="headline-span">ones</span></h1>
+        <hr style="max-width: 30%; border-color: black; margin-bottom: 50px; margin-top: 5px;">
+
+        <div class="container" ng-if="!importDone">
+            <form class="form-horizontal">
+                <div class="form-group form-group-lg">
+                    <div class="col-sm-2 control-label label">North-Eastern Point*</div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="13.3198253" ng-model="import.neLat">
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="52.5127149" ng-model="import.neLng">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <div class="col-sm-2 control-label label">South-Western Point*</div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="13.320187" ng-model="import.swLat">
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="52.5131979" ng-model="import.swLng">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <div class="col-sm-2 control-label label">Filter Options</div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" id="filterID" placeholder="element filter e.g. id"
+                               ng-model="import.filterID">
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" id="filterValue" placeholder="filter value e.g. 42"
+                               ng-model="import.filterValue">
+                    </div>
+                </div>
+            </form>
+            <span class="btn btn-design btn-success btn-file col-xs-offset-4 col-xs-4 btn-lg" ng-disabled="!(import.neLat && import.neLng && import.swLat && import.swLng)">
+                Import SVG File
+                <input name="SvgFile" type="file" accept="image/svg+xml" custom-on-change="svgFileChanged">
+            </span>
+        </div>
+
+
+        <!-- result of import part -->
+        <div class="container import-done-container" ng-if="importDone">
+            <div class="row">
+                <div class="col-xs-4">
+                    <zonelist zones="listOfImportedZones" setzone="setActiveZone" editable></zonelist>
+                    <button class="btn btn-danger danger-btn pull-right btn-design" ng-click="cancelImport()"><i
+                            class="glyphicon glyphicon-remove"></i> Cancel
+                    </button>
+                    <button class="btn btn-success btn-design pull-right" ng-click="doImport()"><i
+                            class="glyphicon glyphicon-ok"></i> Import
+                    </button>
+                </div>
+
+                <div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <zoneattributes zone="activeZone"></zoneattributes>
+                        </div>
+                    </div>
+                    <div class="row cesium-display-helper-row">
+                        <div class="col-xs-12">
+                            <cesium-Display-Helper zones="listOfImportedZones" editable="true"></cesium-Display-Helper>
+                            <!--<cesium-Draw-Helper mapid="cesiumMap" polygondone="callback"></cesium-Draw-Helper>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+# @author MainAero
+amazin.api:
+  build: api/.
+  ports:
+   - "3000:3000"
+  links:
+   - mongo.db
+  container_name: amazin.api
+  volumes:
+   - ./api:/amazin/api
+
+management.tool:
+  build: management-tool/.
+  ports:
+   - "80:80"
+#  links:
+#   - amazin.api
+  container_name: management.tool
+  volumes:
+   - ./management-tool:/amazin/management-tool
+   
+mongo.db:
+  build: .
+#  ports:
+#   - "27017:27017"
+  container_name: mongo.db
+  command: --smallfiles
+  volumes:
+   - ./data/db:/data/db
+   - ./resources:/amazin/resources

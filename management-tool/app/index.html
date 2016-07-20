@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>AnalyticsManagementVisualizationApp</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- build:css(.) styles/vendor.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="bower_components/cesium/Cesium/Widgets/widgets.css" />
+	<link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css(.tmp) styles/main.css -->
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/sb-admin.css">-->
+	<link rel="stylesheet" type="text/css" href="assets/css/sb-admin-2.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="components/sidebar/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/abn_tree.css">
+	<link rel="stylesheet" type="text/css" href="components/selectVenue/selectVenue.css">
+	<!-- endbuild -->
+</head>
+
+<body ng-app="AnalyticsManagementVisualizationApp">
+
+	<!--<img src="assets/img/blur-map-bg.png" id="bg" ng-if="!isAuthenticated">-->
+
+	<div id="wrapper" ng-class="{ 'blured-bg' : !isAuthenticated }">
+		<nav ng-if="isAuthenticated" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; height: 5%;">
+			<navbar></navbar>
+			<sidebar ng-if="isVenueSelected"></sidebar>
+		</nav>
+
+		<div ng-view="" style="height: 93%;"></div>
+	</div>
+
+	<!-- build:js(.) scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/cesium/Cesium/Cesium.js"></script>
+	<script src="bower_components/angular-css/angular-css.js"></script>
+	<script src="bower_components/observable-collection/observableCollection.js"></script>
+	<script src="bower_components/angular-cesium/dist/angular-cesium.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="app.js"></script>
+	<script src="assets/js/abn_tree_directive.js"></script>
+	<script src="components/mainArea/MainAreaCtrl.js"></script>
+	<script src="components/sidebar/SidebarCtrl.js"></script>
+	<script src="components/navbar/NavbarCtrl.js"></script>
+	<script src="components/viewCreation/viewCreationCtrl.js"></script>
+	<script src="components/viewCreation/viewCreationInputCtrl.js"></script>
+	<script src="components/login/LoginCtrl.js"></script>
+	<script src="components/zoneList/zoneListViewCtrl.js"></script>
+	<script src="components/zoneList/zoneListCtrl.js"></script>
+	<script src="components/svgImport/parser.js"></script>
+	<script src="components/svgImport/svgImportCtrl.js"></script>
+	<script src="components/common/customOnChange.js"></script>
+	<script src="components/zoneList/zoneAttributesCtrl.js"></script>
+	<script src="components/zoneCreation/zoneCreationCtrl.js"></script>
+	<script src="components/common/onHover.js"></script>
+	<script src="components/Services/viewService.js"></script>
+	<script src="components/Services/zoneService.js"></script>
+	<script src="components/Services/venueService.js"></script>
+	<script src="components/Services/dataService.js"></script>
+	<script src="components/Services/tokenService.js"></script>
+	<script src="components/viewList/viewListViewCtrl.js"></script>
+	<script src="components/zoneCreation/zoneCreationInputCtrl.js"></script>
+	<script src="components/viewList/viewAttributes.js"></script>
+	<script src="components/viewList/viewListCtrl.js"></script>
+	<script src="components/analytics/AnalyticsCtrl.js"></script>
+	<script src="components/analytics/AnalyticsListCtrl.js"></script>
+	<script src="components/analytics/requestDetailDirective.js"></script>
+	<script src="components/analytics/D3Service.js"></script>
+	<script src="components/analytics/d3BarDirective.js"></script>
+	<script src="components/map/cesiumDrawHelper.js"></script>
+	<script src="components/map/cesiumDisplayHelper.js"></script>
+
+	<script src="components/analytics/mapOptionDirective.js"></script>
+
+	<!-- Select Venue -->
+	<script src="components/selectVenue/SelectVenueCtrl.js"></script>
+	<script src="components/selectVenue/selectVenueModal.html"></script>
+
+	<!-- Common:Constants -->
+	<script src="components/common/constants/authEvents.js"></script>
+	<script src="components/common/constants/authRoles.js"></script>
+
+
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>

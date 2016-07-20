@@ -1,0 +1,122 @@
+<div class="modal-header">
+    <h2 class="modal-title text-center">V<span class="headline-span">enue</span> C<span class="headline-span">reation</span></h2>
+</div>
+<div class="modal-body">
+
+    <!--novalidate, um eingebaute browser Validierung auszuschalten-->
+    <form name="modalForm" class="form-horizontal" ng-submit="ok()" novalidate ng-if="showForm">
+
+        <!-- Name -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.name.$invalid && modalForm.name.$dirty, 'has-success' : modalForm.name.$valid && modalForm.name.$dirty }">
+            <div for="name" class="col-sm-3 control-label bold-label">Name*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="name" id="name"
+                       ng-model="newVenue.name" placeholder="Venue name"
+                       required>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.description.$invalid && modalForm.description.$dirty, 'has-success' : modalForm.description.$valid && modalForm.description.$dirty }">
+            <div for="description" class="col-sm-3 control-label bold-label">Description*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="description" id="description"
+                       ng-model="newVenue.description" placeholder="Venue description"
+                       required>
+            </div>
+        </div>
+
+        <!-- Street -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.street.$invalid && modalForm.street.$dirty, 'has-success' : modalForm.street.$valid && modalForm.street.$dirty }">
+            <div for="street" class="col-sm-3 control-label bold-label">Street*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="street" id="street"
+                       ng-model="newVenue.address.street" placeholder="Venue street"
+                       required>
+            </div>
+        </div>
+
+        <!-- zip -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.zip.$invalid && modalForm.zip.$dirty, 'has-success' : modalForm.zip.$valid && modalForm.zip.$dirty }">
+            <div for="zip" class="col-sm-3 control-label bold-label">Zip*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="zip" id="zip"
+                       ng-model="newVenue.address.zip" placeholder="Venue zip"
+                       required>
+            </div>
+        </div>
+
+        <!-- City -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.city.$invalid && modalForm.city.$dirty, 'has-success' : modalForm.city.$valid && modalForm.city.$dirty }">
+            <div for="city" class="col-sm-3 control-label bold-label">City*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="city" id="city"
+                       ng-model="newVenue.address.city" placeholder="Venue city"
+                       required>
+            </div>
+        </div>
+
+        <!-- Country -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.country.$invalid && modalForm.country.$dirty, 'has-success' : modalForm.country.$valid && modalForm.country.$dirty }">
+            <div for="country" class="col-sm-3 control-label bold-label">Country*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="country" id="country"
+                       ng-model="newVenue.address.country" placeholder="Venue country"
+                       required>
+            </div>
+        </div>
+
+        <!-- latitude -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.latitude.$invalid && modalForm.latitude.$dirty, 'has-success' : modalForm.latitude.$valid && modalForm.latitude.$dirty }">
+            <div for="latitude" class="col-sm-3 control-label bold-label">Latitude*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="latitude" id="latitude"
+                       ng-model="newVenue.location.latitude" placeholder="Venue latitude"
+                       required>
+            </div>
+        </div>
+
+        <!-- longitude -->
+        <div class="form-group" style="margin-bottom: 20px"
+             ng-class="{ 'has-error' : modalForm.longitude.$invalid && modalForm.longitude.$dirty, 'has-success' : modalForm.longitude.$valid && modalForm.longitude.$dirty }">
+            <div for="longitude" class="col-sm-3 control-label bold-label">Longitude*</div>
+
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="longitude" id="longitude"
+                       ng-model="newVenue.location.longitude" placeholder="Venue longitude"
+                       required>
+            </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer" ng-show="!venueCreated">
+            <small class="footnote pull-left">* mandatory fields</small>
+            <button class="btn btn-success confirmDeletionButton" ng-click="ok()"
+                    ng-disabled="modalForm.$invalid">Save
+            </button>
+            <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+
+    </form> <!-- /editForm -->
+
+
+    <h3 ng-if="venueCreated" class="text-center success-message" style="margin-bottom: 35px; color: #449d44;">Venue creation successful!</h3>
+
+    <div class="modal-footer" ng-if="venueCreated">
+        <button class="btn btn-success" type="button" ng-click="applyModalChanges()">ok</button>
+    </div>
+</div>

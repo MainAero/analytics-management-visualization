@@ -1,0 +1,44 @@
+<div id="page-wrapper" ng-style="pageWrapperStyle">
+
+	<div class="row fullheight">
+		<div class="col-xs-6 fullheight">
+
+			<div class="row">
+				<h1 class="text-center">V<span class="headline-span">iews</span></h1>
+				<hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+			</div>
+
+			<div class="row" style="height: 75%">
+				<div class="col-xs-offset-2 col-xs-9 fullheight">
+					<viewlist views="listOfViews" setview="changeActiveView"></viewlist>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 25px;">
+				<div class="col-xs-offset-2 col-xs-9">
+					<button style="width: 150px;" class="btn btn-danger btn-design btn-sm" ng-click="deleteView()"><span class="glyphicon glyphicon-minus"></span> Delete View
+					</button>
+					<button style="width: 150px;" class="btn btn-success btn-design btn-sm pull-right" ng-click="createNewView()"><span class="glyphicon glyphicon-plus"></span> Create View
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-xs-6">
+
+			<div class="row">
+				<h1 class="text-center">A<span class="headline-span">ttributes</span></h1>
+				<hr style="max-width: 30%; border-color: black; margin-bottom: 30px; margin-top: 5px;">
+			</div>
+
+			<div class="row">
+				<div class="col-xs-offset-2 col-xs-10">
+					<viewattributes view="activeview"></viewattributes>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

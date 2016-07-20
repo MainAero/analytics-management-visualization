@@ -1,0 +1,12 @@
+div.col-xs-6 {
+	height: 100%;
+}
+
+div.viewList {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.viewAttributes fieldset {
+	width: 70%;
+}

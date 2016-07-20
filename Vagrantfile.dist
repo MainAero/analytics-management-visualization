@@ -1,0 +1,100 @@
+# @author MainAero
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "hashicorp/precise64"
+
+  config.vm.network "private_network", ip: "172.25.5.5"
+
+  config.vm.synced_folder "./api", "/amazin/api"
+  config.vm.synced_folder "./management-tool", "/amazin/management-tool"
+  config.vm.synced_folder "./resources", "/amazin/resources"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+  end
+
+  config.vm.provision "file", source: "./resources", destination: "~/resources"
+
+
+  config.vm.provision "shell", inline: <<-SHELL
+    export DEBIAN_FRONTEND=noninteractive
+
+    # Add nameserver
+    echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+
+    # Add /etc/hosts entries
+    echo "127.0.0.1	mongo.db amazin.api management.tool" >> /etc/hosts
+
+    # Create log directory
+    sudo mkdir -p /var/log/node/
+    sudo mkdir -p /amazin/api/pid
+
+    # Copy init script
+    sudo cp /home/vagrant/resources/amazin-api.sh /etc/init.d/amazin-api
+    sudo chmod +x /etc/init.d/amazin-api
+    sudo update-rc.d amazin-api defaults
+
+    # Change vagrant ssh directory
+    echo "cd /amazin" >> /home/vagrant/.bashrc
+
+    # Add mongo db repository to sources.list
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+
+    # Install basics
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https python-software-properties python make git curl unzip
+
+    # Install libstdc++6 in correct version needed by mongo db
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get install -y g++ gcc vim
+    sudo apt-get install -y libc6 libstdc++6
+    sudo ldconfig
+
+    # Install mongo db
+    sudo apt-get install -y mongodb-org mongodb-org-server mongodb-org-shell mongodb-org-tools
+
+    # Install nginx
+    sudo apt-get install -y nginx
+
+    # Copy nginx config
+    sudo cp /home/vagrant/resources/nginx.conf /etc/nginx/nginx.conf
+    sudo service nginx restart
+
+    # Install nodejs
+    curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Change directory to api
+    cd /amazin/api
+
+    # Run npm
+    npm update
+    npm install
+
+    # Change directory to management-tool
+    cd /amazin/management-tool
+
+    # Run npm
+    npm update
+    npm install
+    npm install -g bower
+    npm install -g grunt-cli
+
+    # Start amazin-api
+    sudo service mongod restart
+    sudo service amazin-api start
+
+    # Import resources
+    mongoimport --db tdsdb --collection view --drop --file /home/vagrant/resources/view.json
+    mongoimport --db tdsdb --collection viewVisits --drop --file /home/vagrant/resources/viewVisits.json
+    mongoimport --db tdsdb --collection zone --drop --file /home/vagrant/resources/zone.json
+    mongoimport --db tdsdb --collection venue --drop --file /home/vagrant/resources/venue.json
+    mongoimport --db tdsdb --collection attribute --drop --file /home/vagrant/resources/attribute.json
+    mongoimport --db tdsdb --collection aggregatedViewVisitData --drop --file /home/vagrant/resources/aggregatedViewVisitData.json
+
+  SHELL
+end

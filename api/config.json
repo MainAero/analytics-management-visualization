@@ -1,0 +1,21 @@
+{
+  "mongodb": {
+    "dbname": "tdsdb",
+    "host": "mongo.db",
+    "user": "",
+    "password": "",
+    "reconnectTime": 10000
+  },
+  "rest": {
+    "api_port": 3000,
+    "api_url_prefix": "/api/v1",
+    "api_host": "0.0.0.0",
+    "api_host_test":"127.0.0.1",
+    "api_version": "0.2"
+  },
+    "swagger-ui":{
+        "swagger_host":"http://172.25.5.5",
+        "swagger_localhost":"http://172.25.5.5",
+        "swagger_port":3000
+    }
+}

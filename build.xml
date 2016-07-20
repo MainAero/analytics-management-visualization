@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @author MainAero -->
+<project name="campanda" default="main" basedir="." xmlns:ac="antlib:net.sf.antcontrib">
+    <!-- Define macros -->
+
+    <macrodef name="rsyncData">
+        <attribute name="server" />
+        <attribute name="username" />
+        <attribute name="ssh.key" />
+        <attribute name="src.dir" />
+        <attribute name="build.dir" />
+        <sequential>
+            <exec executable="rsync" dir="." failonerror="true">
+                <arg value="-azvc" />
+                <arg value="--delete" />
+                <arg value="--exclude=.git/" />
+                <arg value="--exclude=data/" />
+                <arg value="--exclude=api/node_modules/" />
+                <arg value="--exclude=management-tool/node_modules/" />
+                <arg value="--exclude=management-tool/app/bower_components/" />
+                <arg value="--checksum" />
+                <arg value="--ignore-times" />
+                <arg value="-e" />
+                <arg value="'ssh'" />
+                <arg value="${src.dir}/" />
+                <arg value="${username}@${server}:${build.dir}" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <target name="init">
+        <!-- Echo the configuration -->
+        <echo message="==================================================" />
+        <echo message="==================================================" />
+        <echo message="=== Started Build with following configuration:===" />
+        <echo message="==================================================" />
+        <echo message="Server: ${server}" level="info" />
+        <echo message="Username: ${username}" level="info" />
+        <echo message="Source (src.dir): ${src.dir}" level="info" />
+        <echo message="Build to (build.dir): ${build.dir}" level="info" />
+    </target>
+
+
+    <target name="syncData" depends="init">
+        <echo message="==================================================" />
+        <echo message="Rsync data to: ${server}" />
+        <echo message="==================================================" />
+        <rsyncData
+                server="${server}"
+                username="${username}"
+                ssh.key="${ssh.key}"
+                src.dir="${src.dir}"
+                build.dir="${build.dir}"
+        />
+    </target>
+
+
+    <!-- Main target depends="init,db,rm-maintenance,restart-services" -->
+    <target name="main" depends="syncData">
+        <echo message="==================================================" />
+        <echo message="Main target, nothing else" />
+        <echo message="==================================================" />
+        <description>Main target</description>
+    </target>
+</project>

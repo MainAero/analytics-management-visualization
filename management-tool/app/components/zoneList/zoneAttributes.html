@@ -1,0 +1,69 @@
+<div class="zoneAttributes row">
+
+	<div class="col-xs-offset-3 col-xs-6 container" ng-if="!importDone" style="margin-top: 100px;">
+		<form>
+
+			<fieldset class="form-group form-group-lg">
+				<div class="label control-label text-center">Name</div>
+				<input class="form-control" type="text" ng-model="zone.name" ng-change="updateZone()">
+			</fieldset>
+
+			<fieldset class="form-group form-group-lg">
+				<div class="label control-label">Description</div>
+				<input class="form-control" type="text" ng-model="zone.description" ng-change="updateZone()">
+			</fieldset>
+
+			<fieldset class="form-group form-group-lg">
+				<div class="label control-label">Area name</div>
+				<input class="form-control" type="text" ng-model="zone.areaName" ng-change="updateZone()">
+			</fieldset>
+
+			<fieldset class="form-group form-group-lg">
+				<div class="label control-label">Location description</div>
+				<input class="form-control" type="text" ng-model="zone.location_description" ng-change="updateZone()">
+			</fieldset>
+
+		</form>
+	</div>
+
+
+
+	<div class="col-xs-6 container" ng-if="importDone">
+		<form>
+
+			<fieldset class="form-group">
+				<div class="label control-label">Name</div>
+				<input class="form-control" type="text" ng-model="zone.name" ng-change="updateZone()">
+			</fieldset>
+
+			<fieldset class="form-group">
+				<div class="label control-label">Description</div>
+				<input class="form-control" type="text" ng-model="zone.description" ng-change="updateZone()">
+			</fieldset>
+
+		</form>
+	</div>
+
+
+	<div class="col-xs-6 container" ng-if="importDone">
+		<form>
+
+			<fieldset class="form-group">
+				<div class="label control-label">Area name</div>
+				<input class="form-control" type="text" ng-model="zone.areaName" ng-change="updateZone()">
+			</fieldset>
+
+			<fieldset class="form-group">
+				<div class="label control-label">Location description</div>
+				<input class="form-control" type="text" ng-model="zone.location_description" ng-change="updateZone()">
+			</fieldset>
+
+		</form>
+	</div>
+
+	<!-- FLOOR for further implementation -->
+	<!--<div class="input-group input-group-lg">-->
+	<!--<div class="attribute-name">Floor</div>-->
+	<!--<input class="attribute-value" type="number" ng-model="zone.location.floorNumber" ng-change="updateZone()">-->
+	<!--</div>-->
+</div>

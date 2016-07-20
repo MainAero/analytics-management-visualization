@@ -1,0 +1,11 @@
+<div class="zoneList">
+
+	<input class="filter form-control" type="search" placeholder="Filter" ng-model="searchText">
+
+	<div class="list-group">
+		<div class="list-group-item zone" ng-repeat="zone in zones | filter:searchText" ng-click="updateSelectedZone(zone, $index)" ng-class="{selected: $index === selectedZoneID}" onhover hoverclass="hover">
+			{{zone.name}} <i class="glyphicon glyphicon-remove pull-right" ng-click="remove(zone)" ng-show="editable"></i>
+		</div>
+	</div>
+
+</div>

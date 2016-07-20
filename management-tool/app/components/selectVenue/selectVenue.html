@@ -1,0 +1,46 @@
+<div id="page-wrapper" style="margin: 0; min-height: 100%;">
+    <div class='container'>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-xs-12">
+                <h1 class='form-signin-heading text-center'>V<span class="headline-span">enue</span> S<span
+                        class="headline-span">election</span></h1>
+                <hr style="width: 50%; margin-bottom: 100px; margin-top: 5px; border-color: black">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="col-xs-6" style="padding: 0;">
+                        <input class="form-control input-filter" type="search" placeholder="Filter" ng-model="searchText">
+                    </div>
+                    <div class="col-xs-3 pull-right" style="padding: 0;">
+                        <a class="btn btn-success btn-block btn-design" ng-click="createVenue()"><span
+                                class="glyphicon glyphicon-plus" style="font-size: 0.8em;"></span> New Venue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+                <div class="row">
+                    <uib-accordion close-others="true" class="">
+                        <uib-accordion-group ng-repeat="venue in venues | filter:searchText" is-open="false"
+                                             is-disabled="false" panel-class="panel-primary text-center">
+                            <uib-accordion-heading>
+                                {{venue.name}}
+                            </uib-accordion-heading>
+                            <p>{{venue.description}}</p>
+                            <a class="btn btn-success btn-design pull-right" ng-click="selectVenue(venue._id)"
+                               style="margin-top: 25px">Select
+                                this venue</a>
+
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

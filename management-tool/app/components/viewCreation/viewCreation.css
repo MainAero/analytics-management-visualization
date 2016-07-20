@@ -1,0 +1,8 @@
+div.zoneList {
+	height: 80%;
+}
+
+div.zoneList .list-group {
+	height: 90%;
+	overflow-y: auto;
+}
